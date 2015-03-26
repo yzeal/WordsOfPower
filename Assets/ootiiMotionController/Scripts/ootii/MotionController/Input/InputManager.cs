@@ -50,7 +50,7 @@ namespace com.ootii.Input
         {
             get
             {
-				if (UnityEngine.Input.GetButton("FirstPerson")) { return 0f;}
+				if (UnityEngine.Input.GetButton("FirstPerson") || WordsOfPower.Instance.typing) { return 0f;}
                 float lMovement = UnityEngine.Input.GetAxis("Horizontal");
                 return lMovement;    
             }
@@ -63,7 +63,7 @@ namespace com.ootii.Input
         {
             get
             {
-				if (UnityEngine.Input.GetButton("FirstPerson")) { return 0f;}
+				if (UnityEngine.Input.GetButton("FirstPerson") || WordsOfPower.Instance.typing) { return 0f;}
                 float lMovement = UnityEngine.Input.GetAxis("Vertical");
                 return lMovement;
             }
@@ -91,11 +91,13 @@ namespace com.ootii.Input
 
 				//TESTI First Person mit ctrl
 				if (UnityEngine.Input.GetButton("FirstPerson")) {
-					lView = UnityEngine.Input.GetAxisRaw("Horizontal") + UnityEngine.Input.GetAxisRaw("CameraHorizontal");
+					lView = UnityEngine.Input.GetAxisRaw("Horizontal") + UnityEngine.Input.GetAxisRaw("CameraHorizontal") + UnityEngine.Input.GetAxisRaw("CameraHorizontalKeys");
+					if(WordsOfPower.Instance.typing) lView = UnityEngine.Input.GetAxisRaw("CameraHorizontal");
 					lView /= 2f;
 					if (lView != 0f) { return lView; }
 				}else{
-					lView = UnityEngine.Input.GetAxisRaw("CameraHorizontal");
+					lView = UnityEngine.Input.GetAxisRaw("CameraHorizontal") + UnityEngine.Input.GetAxisRaw("CameraHorizontalKeys");
+					if(WordsOfPower.Instance.typing) lView = UnityEngine.Input.GetAxisRaw("CameraHorizontal");
 					if (lView != 0f) { return lView; }
 				}
 
@@ -126,10 +128,12 @@ namespace com.ootii.Input
 
 				//TESTI First Person mit ctrl
 				if (UnityEngine.Input.GetButton("FirstPerson")) {
-					lView = UnityEngine.Input.GetAxisRaw("Vertical") + UnityEngine.Input.GetAxisRaw("CameraVertical");
+					lView = UnityEngine.Input.GetAxisRaw("Vertical") + UnityEngine.Input.GetAxisRaw("CameraVertical") + UnityEngine.Input.GetAxisRaw("CameraVerticalKeys");
+					if(WordsOfPower.Instance.typing) lView = UnityEngine.Input.GetAxisRaw("CameraVertical");
 					if (lView != 0f) { return lView; }
 				}else{
-					lView = UnityEngine.Input.GetAxisRaw("CameraVertical");
+					lView = UnityEngine.Input.GetAxisRaw("CameraVertical") + UnityEngine.Input.GetAxisRaw("CameraVerticalKeys");
+					if(WordsOfPower.Instance.typing) lView = UnityEngine.Input.GetAxisRaw("CameraVertical");
 					if (lView != 0f) { return lView; }
 				}
 
@@ -229,6 +233,12 @@ namespace com.ootii.Input
         /// <returns>Boolean that determines if the action is taking place</returns>
         public static bool IsPressed(string rAction)
         {
+			//TESTI
+			if(WordsOfPower.Instance.typing){
+				if (rAction == "Aiming") return true;
+				return false;
+			}
+
             // Determines if the character should go into a first-person
             // perspective for targeting
             if (rAction == "Aiming")
@@ -236,9 +246,12 @@ namespace com.ootii.Input
                 if (UnityEngine.Input.GetMouseButton(2)) { return true; }
                 if (mIsXboxControllerEnabled && UnityEngine.Input.GetAxis("WXLeftTrigger") > 0.5f) { return true; }
 				if (UnityEngine.Input.GetButton("FirstPerson")) { return true; }
-            }
+			}
+//			else if(WordsOfPower.Instance.typing){
+//				return false;
+//			}
             // Determines if the character should sprint forward
-            else if (rAction == "Sprint")
+			else if (rAction == "Sprint")
             {
                 if (UnityEngine.Input.GetKey(KeyCode.LeftShift)) { return true; }
                 if (mIsXboxControllerEnabled && UnityEngine.Input.GetButton("WXButton3")) { return true; }
@@ -282,7 +295,10 @@ namespace com.ootii.Input
         /// <returns>Boolean that determines if the action just took place</returns>
         public static bool IsJustPressed(string rAction)
         {
-            if (rAction == "Jump")
+			//TESTI
+			if(WordsOfPower.Instance.typing) return false;
+
+			if (rAction == "Jump" && !WordsOfPower.Instance.typing)
             {
                 if (UnityEngine.Input.GetKeyDown(KeyCode.Space)) { return true; }
                 if (mIsXboxControllerEnabled && UnityEngine.Input.GetButtonDown("WXButton0")) { return true; }

@@ -33,6 +33,20 @@ public class WordsOfPower : MonoBehaviour {
 	private GameObject player;
 	
 	private string testString = "";
+
+	public static WordsOfPower Instance { get; private set; }
+	
+	void Awake(){
+		
+		if(Instance != null && Instance != this)
+		{
+			Destroy(gameObject);
+		}
+		
+		Instance = this;
+		
+		DontDestroyOnLoad(gameObject);
+	}
 	
 	// Use this for initialization
 	void Start () {
@@ -85,8 +99,7 @@ public class WordsOfPower : MonoBehaviour {
 				castingTimeBackground.enabled = true;
 				testString = "";
 				typedText.text = "";
-				//				playerController.UseInput = false;
-				playerController.enabled = false;
+//				playerController.enabled = false;
 				
 				//TESTI
 				//				Time.timeScale = 0f;
@@ -98,8 +111,7 @@ public class WordsOfPower : MonoBehaviour {
 				testString = "";
 				typedText.text = "";
 				castingTimeText.text = "";
-				//				playerController.UseInput = true;
-				playerController.enabled = true;
+//				playerController.enabled = true;
 				
 				//TESTI
 				//				Time.timeScale = 1f;
