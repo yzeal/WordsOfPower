@@ -11,6 +11,7 @@ public class PianoKeys : MonoBehaviour {
 
 	private Dictionary<string, AudioSource> keyboardToPiano = new Dictionary<string, AudioSource>();
 
+
 	// Use this for initialization
 	void Start () {
 		wop = GameObject.Find("WordsOfPower").GetComponent<WordsOfPower>();
@@ -25,9 +26,13 @@ public class PianoKeys : MonoBehaviour {
 		if(wop.typing){
 			if(Input.anyKey){
 				string pressedKey = Input.inputString;
-				AudioSource pianoKey = keyboardToPiano[pressedKey];
-				if(pianoKey != null){
-					pianoKey.Play();
+				try{
+					AudioSource pianoKey = keyboardToPiano[pressedKey];
+					if(pianoKey != null){
+						pianoKey.Play();
+					}
+				}catch(System.Exception e){
+					//do nothing
 				}
 			}
 		}

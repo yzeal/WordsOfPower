@@ -19,11 +19,15 @@ public class Lander : MonoBehaviour {
 		if(wop < minTimeToCast){
 			int spell = GameObject.Find("WordsOfPower").GetComponent<WordsOfPower>().lastSpell;
 			Debug.Log("last spell: " + spell);
-			PhraseOfPower phop = GameObject.Find("WordsOfPower").GetComponent<WordsOfPower>().words[spell];
+			try{
+				PhraseOfPower phop = GameObject.Find("WordsOfPower").GetComponent<WordsOfPower>().words[spell];
 
-			phop.times++;
-			if(phop.times >= timesBeforeShortcut){
-				phop.ActivateShortPhrase();
+				phop.times++;
+				if(phop.times >= timesBeforeShortcut){
+					phop.ActivateShortPhrase();
+				}
+			}catch(System.Exception e){
+				//do nothing
 			}
 		}
 

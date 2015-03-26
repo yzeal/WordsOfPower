@@ -26,20 +26,24 @@ public class WordsOfPower : MonoBehaviour {
 	private Text typedText;
 	private Text castingTimeText;
 	private Image typingBackground;
+	private Image typingBackgroundWords;
+	private Image castingTimeBackground;
 	
 	private MotionController playerController;
 	private GameObject player;
 	
 	private string testString = "";
 	
-	
-	
 	// Use this for initialization
 	void Start () {
 		turner = GetComponent<Turner>();
 		
 		typingBackground = GameObject.Find("TypingBackground").GetComponent<Image>();
+		typingBackgroundWords = GameObject.Find("TypingBackgroundWords").GetComponent<Image>();
+		castingTimeBackground = GameObject.Find("CastingTimeBackground").GetComponent<Image>();
 		typingBackground.enabled = false;
+		typingBackgroundWords.enabled = false;
+		castingTimeBackground.enabled = false;
 		modeText = GameObject.Find("ModeText").GetComponent<Text>();
 		wopGUI = GameObject.Find("WoPGUI").GetComponent<WoPGUI>();
 		typedText = GameObject.Find("TypedText").GetComponent<Text>();
@@ -77,6 +81,8 @@ public class WordsOfPower : MonoBehaviour {
 			if(typing){
 				modeText.text = typingMode;
 				typingBackground.enabled = true;
+				typingBackgroundWords.enabled = true;
+				castingTimeBackground.enabled = true;
 				testString = "";
 				typedText.text = "";
 				//				playerController.UseInput = false;
@@ -87,8 +93,11 @@ public class WordsOfPower : MonoBehaviour {
 			}else{
 				modeText.text = normalMode;
 				typingBackground.enabled = false;
+				typingBackgroundWords.enabled = false;
+				castingTimeBackground.enabled = false;
 				testString = "";
 				typedText.text = "";
+				castingTimeText.text = "";
 				//				playerController.UseInput = true;
 				playerController.enabled = true;
 				
@@ -99,7 +108,7 @@ public class WordsOfPower : MonoBehaviour {
 		
 		if(typing && wopGUI.currentState == WoPGUIStates.HUD){
 			
-			DeleteCastingTimeText();
+			castingTimeText.text = "";
 			
 			if(testString.Length > 1){
 				t += Time.deltaTime;
@@ -111,15 +120,18 @@ public class WordsOfPower : MonoBehaviour {
 			}
 			
 			//			Debug.Log(t);
-			
+
+			castingTimeText.text = Mathf.RoundToInt(t) + "s";
+
 			if(Input.anyKey){
 				foreach (char c in Input.inputString) {						
 					testString += c;
 					//					Regex.Replace(testString, @"[^a-zA-Z0-9 ]", ""); //evtl nicht nötig
 					
 				}
-				Debug.Log (testString);
+//				Debug.Log (testString);
 				typedText.text = testString;
+
 				for(int i = 0; i < words.Count; i++){
 					PhraseOfPower word = words[i];
 						if(testString.Contains(word.phrase) || testString.Contains(word.shortPhrase)){
@@ -130,12 +142,14 @@ public class WordsOfPower : MonoBehaviour {
 						t = 0f;
 						lastSpell = i;
 						testString = "";
-						castingTimeText.text = word.phrase + "  " + Mathf.RoundToInt(spellTime) + "s";
+//						castingTimeText.text = word.phrase + "  " + Mathf.RoundToInt(spellTime) + "s";
+						typedText.text = word.phrase;
 						Invoke("DeleteCastingTimeText", 2f);
 						typing = false;
 						modeText.text = normalMode;
 						typingBackground.enabled = false;
-						typedText.text = "";
+//						typingBackgroundWords.enabled = false;
+//						typedText.text = "";
 						//playerController.UseInput = true;
 						playerController.enabled = true;
 						
@@ -153,6 +167,9 @@ public class WordsOfPower : MonoBehaviour {
 	
 	private void DeleteCastingTimeText(){
 		castingTimeText.text = "";
+		typedText.text = "";
+		typingBackgroundWords.enabled = false;
+		castingTimeBackground.enabled = false;
 	}
 }
 
