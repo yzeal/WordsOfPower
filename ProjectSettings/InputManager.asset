@@ -409,9 +409,9 @@ InputManager:
     m_Name: CameraVerticalKeys
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: k
-    altNegativeButton: i
+    negativeButton: k
+    positiveButton: i
+    altNegativeButton: 
     altPositiveButton: 
     gravity: 3
     dead: .00100000005
