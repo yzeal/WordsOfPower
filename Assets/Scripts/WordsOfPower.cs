@@ -17,6 +17,7 @@ public class WordsOfPower : MonoBehaviour {
 	
 	private Turner turner;
 	private WoPGUI wopGUI;
+	private AudioSource backgroundMusic;
 	
 	public bool typing = false;
 	
@@ -47,27 +48,36 @@ public class WordsOfPower : MonoBehaviour {
 		
 		DontDestroyOnLoad(gameObject);
 	}
-	
+
+	private void LoadStuff(){
+		{
+			turner = GetComponent<Turner>();
+			backgroundMusic = GameObject.FindWithTag("MainCamera").GetComponent<AudioSource>();
+			
+			typingBackground = GameObject.Find("TypingBackground").GetComponent<Image>();
+			typingBackgroundWords = GameObject.Find("TypingBackgroundWords").GetComponent<Image>();
+			castingTimeBackground = GameObject.Find("CastingTimeBackground").GetComponent<Image>();
+			typingBackground.enabled = false;
+			typingBackgroundWords.enabled = false;
+			castingTimeBackground.enabled = false;
+			modeText = GameObject.Find("ModeText").GetComponent<Text>();
+			wopGUI = GameObject.Find("WoPGUI").GetComponent<WoPGUI>();
+			typedText = GameObject.Find("TypedText").GetComponent<Text>();
+			castingTimeText = GameObject.Find("CastingTimeText").GetComponent<Text>();
+			modeText.text = normalMode;
+			
+			player = GameObject.FindWithTag("Player");
+			playerController = player.GetComponent<MotionController>();
+			
+			
+
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
-		turner = GetComponent<Turner>();
-		
-		typingBackground = GameObject.Find("TypingBackground").GetComponent<Image>();
-		typingBackgroundWords = GameObject.Find("TypingBackgroundWords").GetComponent<Image>();
-		castingTimeBackground = GameObject.Find("CastingTimeBackground").GetComponent<Image>();
-		typingBackground.enabled = false;
-		typingBackgroundWords.enabled = false;
-		castingTimeBackground.enabled = false;
-		modeText = GameObject.Find("ModeText").GetComponent<Text>();
-		wopGUI = GameObject.Find("WoPGUI").GetComponent<WoPGUI>();
-		typedText = GameObject.Find("TypedText").GetComponent<Text>();
-		castingTimeText = GameObject.Find("CastingTimeText").GetComponent<Text>();
-		modeText.text = normalMode;
-		
-		player = GameObject.FindWithTag("Player");
-		playerController = player.GetComponent<MotionController>();
+		LoadStuff();
 
-		
 		words.Add(new PhraseOfPower("Turn around!", "turn", "OneTimeTurner"));
 		words.Add(new PhraseOfPower("land", "land", "Lander"));
 		words.Add(new PhraseOfPower("float", "float", "Floater"));
@@ -79,11 +89,15 @@ public class WordsOfPower : MonoBehaviour {
 		//		words.Add(new WordsOfPower("I am the terror that flaps in the night, I am the scourge that pecks at your nightmares.", "protect", "Protection");
 		words.Add(new PhraseOfPower("I am the terror that flaps in the night, I am the itch you cannot reach!", "protect", "Protection"));
 		words.Add(new PhraseOfPower("pro", "pro", "Protection"));
-
+		
 		//TESTI
-//		for(int i = 0; i < 100000; i++){
-//			words.Add(new PhraseOfPower("I am the terror that flaps in the night, I am the itch you cannot reach!" + i, "protect", "Protection"));
-//		}
+		//		for(int i = 0; i < 100000; i++){
+		//			words.Add(new PhraseOfPower("I am the terror that flaps in the night, I am the itch you cannot reach!" + i, "protect", "Protection"));
+		//		}
+	}
+
+	void OnLevelWasLoaded(){
+		LoadStuff();
 	}
 	
 	// Update is called once per frame
@@ -99,6 +113,7 @@ public class WordsOfPower : MonoBehaviour {
 				castingTimeBackground.enabled = true;
 				testString = "";
 				typedText.text = "";
+				backgroundMusic.volume = 0.25f;
 //				playerController.enabled = false;
 				
 				//TESTI
@@ -111,6 +126,7 @@ public class WordsOfPower : MonoBehaviour {
 				testString = "";
 				typedText.text = "";
 				castingTimeText.text = "";
+				backgroundMusic.volume = 0.5f;
 //				playerController.enabled = true;
 				
 				//TESTI
