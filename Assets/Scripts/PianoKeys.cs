@@ -9,12 +9,15 @@ public class PianoKeys : MonoBehaviour {
 	public AudioSource[] pianoKeys;
 	public string[] keyboardKeys;
 
+	private WoPGUI wopGUI;
+
 	private Dictionary<string, AudioSource> keyboardToPiano = new Dictionary<string, AudioSource>();
 
 
 	// Use this for initialization
 	void Start () {
-		wop = GameObject.Find("WordsOfPower").GetComponent<WordsOfPower>();
+		wop = WordsOfPower.Instance;
+		wopGUI = GameObject.Find("WoPGUI").GetComponent<WoPGUI>();
 
 		for(int i = 0; i < keyboardKeys.Length; i++){
 			keyboardToPiano.Add(keyboardKeys[i], pianoKeys[i]);
@@ -23,7 +26,7 @@ public class PianoKeys : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(wop.typing){
+		if(wop.typing && wopGUI.currentState == WoPGUIStates.HUD){
 			if(Input.anyKey){
 				string pressedKey = Input.inputString;
 				try{

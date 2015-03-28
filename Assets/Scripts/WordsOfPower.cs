@@ -35,6 +35,8 @@ public class WordsOfPower : MonoBehaviour {
 	
 	private string testString = "";
 
+	private bool wait;
+
 	public static WordsOfPower Instance { get; private set; }
 	
 	void Awake(){
@@ -69,7 +71,7 @@ public class WordsOfPower : MonoBehaviour {
 			player = GameObject.FindWithTag("Player");
 			playerController = player.GetComponent<MotionController>();
 			
-			
+			wait = false;
 
 		}
 	}
@@ -104,10 +106,11 @@ public class WordsOfPower : MonoBehaviour {
 	void Update () {
 		
 		//toggle typing mode on or off
-		if(Input.GetKeyDown(KeyCode.Return) && wopGUI.currentState == WoPGUIStates.HUD){
+		if(Input.GetKeyDown(KeyCode.Return) && !wait && wopGUI.currentState == WoPGUIStates.HUD){
 			typing = typing ? false : true;
 			if(typing){
 				modeText.text = typingMode;
+				Wait(0.1f);
 				typingBackground.enabled = true;
 				typingBackgroundWords.enabled = true;
 				castingTimeBackground.enabled = true;
@@ -134,7 +137,7 @@ public class WordsOfPower : MonoBehaviour {
 			}
 		}
 		
-		if(typing && wopGUI.currentState == WoPGUIStates.HUD){
+		if(typing && !wait && wopGUI.currentState == WoPGUIStates.HUD){
 			
 			castingTimeText.text = "";
 			
@@ -198,6 +201,15 @@ public class WordsOfPower : MonoBehaviour {
 		typedText.text = "";
 		typingBackgroundWords.enabled = false;
 		castingTimeBackground.enabled = false;
+	}
+
+	public void Wait(float seconds){
+		wait = true;
+		Invoke("StopWaiting", seconds);
+	}
+
+	private void StopWaiting(){
+		wait = false;
 	}
 }
 

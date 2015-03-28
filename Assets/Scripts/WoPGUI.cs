@@ -45,6 +45,7 @@ public class WoPGUI : MonoBehaviour {
 		}else if(currentState == WoPGUIStates.MENU || currentState == WoPGUIStates.LEXICON){
 			if(Input.GetKeyDown(KeyCode.Escape)){
 				currentState = WoPGUIStates.HUD;
+				WordsOfPower.Instance.Wait(0.1f);
 				canvasHUD.enabled = true;
 				TurnOnButtons(canvasHUD);
 				canvasMenu.enabled = false;
@@ -81,6 +82,7 @@ public class WoPGUI : MonoBehaviour {
 
 	public void SwitchToHUD(){
 		currentState = WoPGUIStates.HUD;
+		WordsOfPower.Instance.Wait(0.1f);
 		canvasHUD.enabled = true;
 		TurnOnButtons(canvasHUD);
 		canvasMenu.enabled = false;
