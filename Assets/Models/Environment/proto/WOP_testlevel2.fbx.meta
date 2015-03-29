@@ -13,6 +13,7 @@ ModelImporter:
     100010: Boden.001
     100012: Decke.001
     100014: wall.001
+    100016: blob
     400000: Boden
     400002: boden_proto
     400004: Decke
@@ -21,6 +22,7 @@ ModelImporter:
     400010: Boden.001
     400012: Decke.001
     400014: wall.001
+    400016: blob
     2300000: Boden
     2300002: boden_proto
     2300004: Decke
@@ -28,6 +30,7 @@ ModelImporter:
     2300008: Boden.001
     2300010: Decke.001
     2300012: wall.001
+    2300014: blob
     3300000: Boden
     3300002: boden_proto
     3300004: Decke
@@ -35,6 +38,7 @@ ModelImporter:
     3300008: Boden.001
     3300010: Decke.001
     3300012: wall.001
+    3300014: blob
     4300000: Decke
     4300002: wall
     4300004: Boden
@@ -42,6 +46,7 @@ ModelImporter:
     4300008: Boden.001
     4300010: wall.001
     4300012: Decke.001
+    4300014: blob
     6400000: Boden
     6400002: boden_proto
     6400004: Decke
@@ -49,6 +54,7 @@ ModelImporter:
     6400008: Boden.001
     6400010: Decke.001
     6400012: wall.001
+    6400014: blob
   materials:
     importMaterials: 1
     materialName: 0
