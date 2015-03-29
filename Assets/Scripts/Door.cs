@@ -14,8 +14,14 @@ public class Door : MonoBehaviour {
 	private Vector3 startPos;
 	private Vector3 endPos;
 	private bool moving;
+
+
+
+	private Turner turner;
+
 	// Use this for initialization
 	void Start () {
+		turner = WordsOfPower.Instance.GetComponent<Turner>();
 		startPos = transform.position;
 		endPos = transform.position + direction * transform.localScale.y; //TODO .y stimmt nicht für jede Richtung!!
 	}
@@ -29,34 +35,42 @@ public class Door : MonoBehaviour {
 			}
 		}
 
-		if(open && !moving && transform.position != endPos){
-			moving = true;
-			t = 0;
-		}else if(!open && !moving && transform.position != startPos){
-			moving = true;
-			t = 0;
+		if(turner.doorTurning){
+			startPos = transform.position;
+			endPos = transform.position + direction * transform.localScale.y; //TODO .y stimmt nicht für jede Richtung!!
 		}
 
-
-		if(open){
-			//runter
-			if(moving){
-				transform.position = Vector3.Lerp(startPos, endPos, t*openingSpeed);
-				t += Time.deltaTime;
-				if(t >= 1){
-					moving = false;
-					transform.position = endPos;
-				}
+		if(!turner.doorTurning){
+			if(open && !moving && transform.position != endPos){
+				moving = true;
+				t = 0;
+			}else if(!open && !moving && transform.position != startPos){
+				Debug.Log("Door closing: " + startPos + "  " + transform.position);
+				moving = true;
+				t = 0;
 			}
-			
-		}else if(transform.position != startPos){
-			//hoch
-			if(moving){
-				transform.position = Vector3.Lerp(endPos, startPos, t*openingSpeed);
-				t += Time.deltaTime;
-				if(t >= 1){
-					moving = false;
-					transform.position = startPos;
+
+
+			if(open){
+				//runter
+				if(moving){
+					transform.position = Vector3.Lerp(startPos, endPos, t*openingSpeed);
+					t += Time.deltaTime;
+					if(t >= 1){
+						moving = false;
+						transform.position = endPos;
+					}
+				}
+				
+			}else if(transform.position != startPos){
+				//hoch
+				if(moving){
+					transform.position = Vector3.Lerp(endPos, startPos, t*openingSpeed);
+					t += Time.deltaTime;
+					if(t >= 1){
+						moving = false;
+						transform.position = startPos;
+					}
 				}
 			}
 		}

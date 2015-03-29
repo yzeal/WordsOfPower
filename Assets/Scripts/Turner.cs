@@ -9,6 +9,8 @@ public class Turner : MonoBehaviour {
 
 	private bool turning;
 
+	public bool doorTurning;
+
 	public bool Turning {
 		get {
 			return turning;
@@ -62,6 +64,7 @@ public class Turner : MonoBehaviour {
 			degrees += orbitDegrees;
 			if(degrees == 180){
 				turning = false;
+				Invoke("ResetDoorTurning", 0.1f);
 				degrees = 0;
 				foreach(GameObject enemy in enemiesToTurn){
 					if(enemy != null){
@@ -82,6 +85,7 @@ public class Turner : MonoBehaviour {
 	public void Turn(){
 		playerStartPos = player.transform.position;
 		turning = true;
+		doorTurning = true;
 
 		foreach(GameObject enemy in enemiesToTurn){
 			if(enemy != null){
@@ -90,5 +94,9 @@ public class Turner : MonoBehaviour {
 				enemy.GetComponent<Collider>().enabled = false;
 			}
 		}
+	}
+
+	private void ResetDoorTurning(){
+		doorTurning = false;
 	}
 }
