@@ -10,27 +10,45 @@ ModelImporter:
     100004: Decke
     100006: wall
     100008: //RootNode
+    100010: Boden.001
+    100012: Decke.001
+    100014: wall.001
     400000: Boden
     400002: boden_proto
     400004: Decke
     400006: wall
     400008: //RootNode
+    400010: Boden.001
+    400012: Decke.001
+    400014: wall.001
     2300000: Boden
     2300002: boden_proto
     2300004: Decke
     2300006: wall
+    2300008: Boden.001
+    2300010: Decke.001
+    2300012: wall.001
     3300000: Boden
     3300002: boden_proto
     3300004: Decke
     3300006: wall
+    3300008: Boden.001
+    3300010: Decke.001
+    3300012: wall.001
     4300000: Decke
     4300002: wall
     4300004: Boden
     4300006: boden_proto
+    4300008: Boden.001
+    4300010: wall.001
+    4300012: Decke.001
     6400000: Boden
     6400002: boden_proto
     6400004: Decke
     6400006: wall
+    6400008: Boden.001
+    6400010: Decke.001
+    6400012: wall.001
   materials:
     importMaterials: 1
     materialName: 0
