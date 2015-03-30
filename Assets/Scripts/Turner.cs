@@ -24,6 +24,7 @@ public class Turner : MonoBehaviour {
 	private List<Transform> objectsToTurn = new List<Transform>();
 	private List<GameObject> enemiesToTurn = new List<GameObject>();
 	private GameObject level;
+	private GameObject enemies;
 
 	// Use this for initialization
 	void Start () {
@@ -36,7 +37,7 @@ public class Turner : MonoBehaviour {
 			objectsToTurn.Add(level.transform.GetChild(i).transform);
 		}
 
-		GameObject enemies = GameObject.Find("Enemies");
+		enemies = GameObject.Find("Enemies");
 		int enemyChildren = enemies.transform.childCount;
 		for(int i = 0; i < enemyChildren; i++){
 			enemiesToTurn.Add(enemies.transform.GetChild(i).gameObject);
@@ -52,13 +53,22 @@ public class Turner : MonoBehaviour {
 //			}
 
 			foreach(GameObject enemy in enemiesToTurn){
+//				if(enemy != null){
+//					enemy.GetComponent<Rigidbody>().isKinematic = true;
+//					enemy.GetComponent<Collider>().enabled = false;
+//				}
 				if(enemy != null){
-					enemy.GetComponent<Rigidbody>().isKinematic = true;
+//					enemy.GetComponent<Rigidbody>().isKinematic = true;
 					enemy.GetComponent<Collider>().enabled = false;
+//					Rigidbody[] parts = GetComponentsInChildren<Rigidbody>();
+//					foreach(Rigidbody part in parts){
+//						part.isKinematic = true;
+//					}
 				}
 			}
 
 			level.transform.RotateAround(rotationPivot.transform.position, rotationPivot.transform.forward, orbitDegrees);
+			enemies.transform.RotateAround(rotationPivot.transform.position, rotationPivot.transform.forward, orbitDegrees);
 
 			player.transform.position = playerStartPos;
 			degrees += orbitDegrees;
@@ -69,7 +79,7 @@ public class Turner : MonoBehaviour {
 				foreach(GameObject enemy in enemiesToTurn){
 					if(enemy != null){
 	//					enemy.useGravity = true;
-						enemy.GetComponent<Rigidbody>().isKinematic = false;
+//						enemy.GetComponent<Rigidbody>().isKinematic = false;
 						enemy.GetComponent<Collider>().enabled = true;
 					}
 				}
@@ -90,7 +100,7 @@ public class Turner : MonoBehaviour {
 		foreach(GameObject enemy in enemiesToTurn){
 			if(enemy != null){
 	//			enemy.useGravity = false;
-				enemy.GetComponent<Rigidbody>().isKinematic = true;
+//				enemy.GetComponent<Rigidbody>().isKinematic = true;
 				enemy.GetComponent<Collider>().enabled = false;
 			}
 		}
