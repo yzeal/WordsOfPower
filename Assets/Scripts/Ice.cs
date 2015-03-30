@@ -35,6 +35,7 @@ public class Ice : MonoBehaviour {
 			}
 		}else if(wop > maxTimeToCast){
 			force = minForce;
+			GetComponent<Rigidbody>().mass = 0.5f;
 		}else{
 			force = Mathf.Lerp(maxForce, minForce, wop/(maxTimeToCast - minTimeToCast));
 		}

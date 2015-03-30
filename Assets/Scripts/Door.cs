@@ -28,7 +28,9 @@ public class Door : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		open = true;
+		if(switches.Length > 0){
+			open = true;
+		}
 		foreach(Switch doorSwitch in switches){
 			if(!doorSwitch.activated){
 				open = false;
