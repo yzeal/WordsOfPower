@@ -612,6 +612,7 @@ MonoBehaviour:
   openingSpeed: 1
   switches: []
   open: 0
+  openingDistance: 0
 --- !u!114 &78503988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3232,8 +3233,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: -1, z: 0}
   openingSpeed: 1
-  switches: []
+  switches:
+  - {fileID: 1769409907}
   open: 0
+  openingDistance: 2
 --- !u!114 &644849022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3349,6 +3352,7 @@ MonoBehaviour:
   openingSpeed: 1
   switches: []
   open: 0
+  openingDistance: 0
 --- !u!114 &689681351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3560,6 +3564,7 @@ MonoBehaviour:
   openingSpeed: 1
   switches: []
   open: 0
+  openingDistance: 0
 --- !u!1 &825548797
 GameObject:
   m_ObjectHideFlags: 0
@@ -5729,7 +5734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec8ddce9b1b39e4daf17ede17a3d1de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1698557156
+--- !u!114 &1698557160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -5746,6 +5751,7 @@ MonoBehaviour:
   - {fileID: 1769409907}
   - {fileID: 867977366}
   open: 0
+  openingDistance: 5
 --- !u!1 &1749347056
 GameObject:
   m_ObjectHideFlags: 0
