@@ -9,6 +9,7 @@ public class Door : MonoBehaviour {
 	public Switch[] switches;
 
 	public bool open;
+	public bool openingDistance = 0f;
 
 	private float t;
 	private Vector3 startPos;
@@ -24,6 +25,9 @@ public class Door : MonoBehaviour {
 		turner = WordsOfPower.Instance.GetComponent<Turner>();
 		startPos = transform.position;
 		endPos = transform.position + direction * transform.localScale.y; //TODO .y stimmt nicht für jede Richtung!!
+		if(openingDistance != 0f){
+			endPos = transform.position + direction * openingDistance;
+		}
 	}
 	
 	// Update is called once per frame
@@ -40,6 +44,9 @@ public class Door : MonoBehaviour {
 		if(turner.doorTurning){
 			startPos = transform.position;
 			endPos = transform.position + direction * transform.localScale.y; //TODO .y stimmt nicht für jede Richtung!!
+			if(openingDistance != 0f){
+				endPos = transform.position + direction * openingDistance;
+			}
 		}
 
 		if(!turner.doorTurning){
