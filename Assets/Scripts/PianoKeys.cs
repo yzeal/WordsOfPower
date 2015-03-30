@@ -91,6 +91,10 @@ public class PianoKeys : MonoBehaviour {
 //				keyboardToPiano["?"].Stop();
 //			}
 
+			if(Input.GetKeyDown(KeyCode.LeftBracket)){
+				Debug.Log("üüüü");
+			}
+
 						if(Input.anyKey){
 							string pressedKey = Input.inputString;
 //							if(Input.GetKeyDown(".")){
