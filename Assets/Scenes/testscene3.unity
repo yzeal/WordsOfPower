@@ -198,7 +198,7 @@ Transform:
   - {fileID: 1835534102}
   - {fileID: 2071649940}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &14664744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,7 +434,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1 &67354034
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,6 +935,48 @@ Transform:
   - {fileID: 182564111}
   m_Father: {fileID: 1007108010}
   m_RootOrder: 0
+--- !u!1001 &233769328
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 483136, guid: c6c1091dff9291c4689d21a0d1d7c10e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.196257964
+      objectReference: {fileID: 0}
+    - target: {fileID: 483136, guid: c6c1091dff9291c4689d21a0d1d7c10e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.22253537
+      objectReference: {fileID: 0}
+    - target: {fileID: 483136, guid: c6c1091dff9291c4689d21a0d1d7c10e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 35.2662086
+      objectReference: {fileID: 0}
+    - target: {fileID: 483136, guid: c6c1091dff9291c4689d21a0d1d7c10e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 483136, guid: c6c1091dff9291c4689d21a0d1d7c10e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 483136, guid: c6c1091dff9291c4689d21a0d1d7c10e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 483136, guid: c6c1091dff9291c4689d21a0d1d7c10e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 483136, guid: c6c1091dff9291c4689d21a0d1d7c10e, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c6c1091dff9291c4689d21a0d1d7c10e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &251838774
 Prefab:
   m_ObjectHideFlags: 0
@@ -4236,7 +4278,7 @@ Transform:
   - {fileID: 2096917015}
   - {fileID: 616415690}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &852434940
 GameObject:
   m_ObjectHideFlags: 0
@@ -4632,7 +4674,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1 &994682082
 GameObject:
   m_ObjectHideFlags: 0
@@ -5190,7 +5232,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1290921349
 GameObject:
   m_ObjectHideFlags: 0
@@ -5248,7 +5290,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!114 &1311724610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5769,7 +5811,7 @@ Transform:
   - {fileID: 1749347062}
   - {fileID: 521589661}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1519795333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6379,7 +6421,7 @@ Transform:
   - {fileID: 825548802}
   - {fileID: 349783108}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &1687806916
 GameObject:
   m_ObjectHideFlags: 0
@@ -6466,7 +6508,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!1001 &1698557152
 Prefab:
   m_ObjectHideFlags: 0
@@ -7246,7 +7288,7 @@ Transform:
   - {fileID: 644849020}
   - {fileID: 1698557153}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &1853697012
 GameObject:
   m_ObjectHideFlags: 0
@@ -7375,7 +7417,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &1939413997
 GameObject:
   m_ObjectHideFlags: 0
