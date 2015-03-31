@@ -78,7 +78,9 @@ public class WordsOfPower : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		LoadStuff();
+		if(Application.loadedLevelName != "preloader"){
+			LoadStuff();
+		}
 
 		words.Add(new PhraseOfPower("Turn around!", "turn", "OneTimeTurner"));
 		words.Add(new PhraseOfPower("land", "land", "Lander"));
@@ -99,7 +101,9 @@ public class WordsOfPower : MonoBehaviour {
 	}
 
 	void OnLevelWasLoaded(){
-		LoadStuff();
+		if(Application.loadedLevelName != "preloader"){
+			LoadStuff();
+		}
 	}
 	
 	// Update is called once per frame

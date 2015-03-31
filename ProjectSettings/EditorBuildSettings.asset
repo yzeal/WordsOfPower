@@ -9,7 +9,3 @@ EditorBuildSettings:
     path: Assets/Scenes/preloader.unity
   - enabled: 1
     path: Assets/Scenes/testscene3.unity
-  - enabled: 1
-    path: Assets/Scenes/testscene2.unity
-  - enabled: 1
-    path: Assets/Scenes/testscene.unity

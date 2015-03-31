@@ -26,23 +26,34 @@ public class Turner : MonoBehaviour {
 	private GameObject level;
 	private GameObject enemies;
 
-	// Use this for initialization
-	void Start () {
+	private void LoadStuff(){
 		player = GameObject.FindWithTag("Player");
 		rotationPivot = GameObject.Find("RotationPivot");
-
+		
 		level = GameObject.Find("Level");
 		int levelChildren = level.transform.childCount;
 		for(int i = 0; i < levelChildren; i++){
 			objectsToTurn.Add(level.transform.GetChild(i).transform);
 		}
-
+		
 		enemies = GameObject.Find("Enemies");
 		int enemyChildren = enemies.transform.childCount;
 		for(int i = 0; i < enemyChildren; i++){
 			enemiesToTurn.Add(enemies.transform.GetChild(i).gameObject);
 		}
+	}
 
+	// Use this for initialization
+	void Start () {
+		if(Application.loadedLevelName != "preloader"){
+			LoadStuff();
+		}
+	}
+
+	void OnLevelWasLoaded () {
+		if(Application.loadedLevelName != "preloader"){
+			LoadStuff();
+		}
 	}
 	
 	// Update is called once per frame
