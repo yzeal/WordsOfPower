@@ -13,5 +13,6 @@ public class RotationPivot : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.position = player.transform.position + Vector3.up*0.722f;
+		transform.rotation = Quaternion.Euler(new Vector3(0f, player.transform.position.y, 0f));
 	}
 }

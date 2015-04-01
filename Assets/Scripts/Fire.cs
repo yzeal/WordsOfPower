@@ -67,6 +67,8 @@ public class Fire : MonoBehaviour {
 		}
 		
 		Invoke("Disappear", duration);
+
+//		WordsOfPower.Instance.typing = false;
 	}
 	
 	// Update is called once per frame

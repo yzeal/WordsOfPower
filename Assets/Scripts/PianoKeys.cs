@@ -28,6 +28,7 @@ public class PianoKeys : MonoBehaviour {
 	void Update () {
 		if(wop.typing && wopGUI.currentState == WoPGUIStates.HUD){
 
+
 //			foreach(string keyString in keyboardKeys){
 //				try{
 //					if(Input.GetKeyDown(keyString)){
@@ -91,9 +92,9 @@ public class PianoKeys : MonoBehaviour {
 //				keyboardToPiano["?"].Stop();
 //			}
 
-			if(Input.GetKeyDown(KeyCode.LeftBracket)){
-				Debug.Log("üüüü");
-			}
+//			if(Input.GetKeyDown(KeyCode.LeftBracket)){
+//				Debug.Log("üüüü");
+//			}
 
 						if(Input.anyKey){
 							string pressedKey = Input.inputString;

@@ -25,7 +25,7 @@ Material:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: fafaaf5c9f70a0f45aedea67cfe31611, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -53,7 +53,7 @@ Material:
         first:
           name: _EmissionMap
         second:
-          m_Texture: {fileID: 2800000, guid: cc54ab6e17a6be84b95c10879bde626d, type: 3}
+          m_Texture: {fileID: 2800000, guid: 86c3cbfe45b590d46bc9a21a7d695b88, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -134,7 +134,7 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: .551470578, g: .551470578, b: .551470578, a: 1}
+        second: {r: .653728724, g: .823529422, b: .175605565, a: 1}
       data:
         first:
           name: _Color
@@ -142,4 +142,4 @@ Material:
       data:
         first:
           name: _EmissionColorUI
-        second: {r: .551470578, g: .551470578, b: .551470578, a: 1}
+        second: {r: .653728724, g: .823529422, b: .175605565, a: 1}

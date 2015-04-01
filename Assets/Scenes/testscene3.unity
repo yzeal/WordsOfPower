@@ -198,7 +198,7 @@ Transform:
   - {fileID: 1835534102}
   - {fileID: 2071649940}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &14664744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5421,7 +5421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1270953558
 MonoBehaviour:
   m_ObjectHideFlags: 0

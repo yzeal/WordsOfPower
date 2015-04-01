@@ -92,12 +92,18 @@ namespace com.ootii.Input
 				//TESTI First Person mit ctrl
 				if (UnityEngine.Input.GetButton("FirstPerson")) {
 					lView = UnityEngine.Input.GetAxisRaw("Horizontal") + UnityEngine.Input.GetAxisRaw("CameraHorizontal") + UnityEngine.Input.GetAxisRaw("CameraHorizontalKeys");
-					if(WordsOfPower.Instance.typing) lView = UnityEngine.Input.GetAxisRaw("CameraHorizontal");
 					lView /= 2f;
+					if(WordsOfPower.Instance.typing){
+						lView = UnityEngine.Input.GetAxisRaw("CameraHorizontal");
+						lView /= 8f;
+					}
 					if (lView != 0f) { return lView; }
 				}else{
 					lView = UnityEngine.Input.GetAxisRaw("CameraHorizontal") + UnityEngine.Input.GetAxisRaw("CameraHorizontalKeys");
-					if(WordsOfPower.Instance.typing) lView = UnityEngine.Input.GetAxisRaw("CameraHorizontal");
+					if(WordsOfPower.Instance.typing){
+						lView = UnityEngine.Input.GetAxisRaw("CameraHorizontal");
+						lView /= 8f;
+					}
 					if (lView != 0f) { return lView; }
 				}
 
@@ -129,11 +135,17 @@ namespace com.ootii.Input
 				//TESTI First Person mit ctrl
 				if (UnityEngine.Input.GetButton("FirstPerson")) {
 					lView = UnityEngine.Input.GetAxisRaw("Vertical") + UnityEngine.Input.GetAxisRaw("CameraVertical") + UnityEngine.Input.GetAxisRaw("CameraVerticalKeys");
-					if(WordsOfPower.Instance.typing) lView = UnityEngine.Input.GetAxisRaw("CameraVertical");
+					if(WordsOfPower.Instance.typing){
+						lView = UnityEngine.Input.GetAxisRaw("CameraVertical");
+						lView /= 3f;
+					}
 					if (lView != 0f) { return lView; }
 				}else{
 					lView = UnityEngine.Input.GetAxisRaw("CameraVertical") + UnityEngine.Input.GetAxisRaw("CameraVerticalKeys");
-					if(WordsOfPower.Instance.typing) lView = UnityEngine.Input.GetAxisRaw("CameraVertical");
+					if(WordsOfPower.Instance.typing){
+						lView = UnityEngine.Input.GetAxisRaw("CameraVertical");
+						lView /= 3f;
+					}
 					if (lView != 0f) { return lView; }
 				}
 

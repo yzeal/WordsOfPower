@@ -179,8 +179,9 @@ public class WordsOfPower : MonoBehaviour {
 						testString = "";
 //						castingTimeText.text = word.phrase + "  " + Mathf.RoundToInt(spellTime) + "s";
 						typedText.text = word.phrase;
-						Invoke("DeleteCastingTimeText", 2f);
+						Invoke("DeleteCastingTimeText", 1f);
 						typing = false;
+//						Invoke("ResetTyping", 0.05f);
 						modeText.text = normalMode;
 						typingBackground.enabled = false;
 //						typingBackgroundWords.enabled = false;
@@ -203,8 +204,10 @@ public class WordsOfPower : MonoBehaviour {
 	private void DeleteCastingTimeText(){
 		castingTimeText.text = "";
 		typedText.text = "";
-		typingBackgroundWords.enabled = false;
-		castingTimeBackground.enabled = false;
+		if(!typing){
+			typingBackgroundWords.enabled = false;
+			castingTimeBackground.enabled = false;
+		}
 	}
 
 	public void Wait(float seconds){
@@ -214,6 +217,10 @@ public class WordsOfPower : MonoBehaviour {
 
 	private void StopWaiting(){
 		wait = false;
+	}
+
+	private void ResetTyping(){
+		typing = false;
 	}
 }
 
